@@ -1,0 +1,77 @@
+================================================================================
+PROMPT STRUCTURE - PLAYWRIGHT
+================================================================================
+
+Act as a Senior QA Automation Engineer.
+Based on the following assignment specifications, please generate all required files for the project "AL_Assisted_Automation_CollegeSocialNetwork".
+
+
+--------------------------------------------------------------------------------
+### ASSIGNMENT DETAILS:
+--------------------------------------------------------------------------------
+
+- Application URL: http://webapps.tekstac.com:2121/
+- Credentials: Username: admin/ Password: admin123
+- Tech Stack: Playwright with TypeScript
+
+
+--------------------------------------------------------------------------------
+### MODULES & VALIDATION RULES:
+--------------------------------------------------------------------------------
+
+1. Student Registration (US-01 to US-08):
+
+   - Student Name (Letters and spaces only)
+   - Mobile Number (Exactly 10 digits)
+   - Email ID (Valid email format)
+   - CGPA (Range 0.0 to 10.0)
+   - Department Name (Non-empty text)
+   - Backlog Count (Non-negative integer)
+   - All 6 fields are mandatory.
+
+
+2. Update Backlog (US-09 to US-11):
+
+   - Roll Number (Valid roll number from completed registration)
+   - Backlog Count (Non-negative integer)
+   - Both fields are mandatory.
+
+
+3. Add Faculty (US-12 to US-16):
+
+   - Faculty Name (Letters and spaces only)
+   - Email ID (Valid email format)
+   - Designation (Non-empty text)
+   - All 3 fields are mandatory.
+
+
+--------------------------------------------------------------------------------
+### DELIVERABLES NEEDED:
+--------------------------------------------------------------------------------
+
+1. Application Analysis & Requirements.txt:
+   - Provide documented analysis covering login flow, element IDs/selectors, acceptance criteria, and validation rules for all 3 modules.
+
+
+2. testcases.csv:
+   - Generate a complete CSV with at least 60 detailed test cases covering US-01 through US-16.
+   - Use columns: TC_ID, Module, User_Story_ID, Test_Scenario, Test_Type, Priority, Precondition, Test_Steps, Test_Data, Expected_Result
+   - Ensure 60-70% are Negative/Validation scenarios (Critical/High priority), Boundary cases (Medium priority), and Positive cases (Low priority)
+
+
+3. Automation Codebase (Playwright + TypeScript):
+   - Provide clean Page Object Models / test scripts for all 3 modules
+   - Include a reusable login helper (loginAsAdmin).
+   - Write at least 20 automated test methods using assertions, focusing heavily on negative/validation checks.
+
+
+4. defects/defect_report.json:
+   - Generate a single JSON file containing at least 8 realistic validation defects observed from test execution across all 3 modules
+   - Keys required per defect: defect_id, module, user_story, entered_data, observed behavior, expected_result, severity, priority.
+
+
+--------------------------------------------------------------------------------
+### OUTPUT INSTRUCTION:
+--------------------------------------------------------------------------------
+
+Please output the content of each file clearly labeled with its exact filename so I can save them directly into my workspace.

@@ -1,0 +1,87 @@
+================================================================================
+PROMPT PATTERN 1 - SELENIUM + JAVA SAMPLE FOR BANK APPLICATION
+================================================================================
+
+Act as a Senior QA Automation Engineer.
+Based on the following assignment specifications, please generate all required files for the project "BRD_Automation".
+
+
+--------------------------------------------------------------------------------
+### ASSIGNMENT DETAILS:
+--------------------------------------------------------------------------------
+
+- Application URL: http://webapps.tekstac.com:2121/
+  ---> Give URL from description
+
+- Credentials: Username: admin / Password: admin123
+  ----> Update or remove this based on requirement
+
+- Tech Stack: Selenium with Java using Page Object Model
+
+
+--------------------------------------------------------------------------------
+### MODULES & VALIDATION RULES:
+--------------------------------------------------------------------------------
+
+1. REGISTRATION (US-01 to US-07):
+   ---> Update module name, User story count and below validation rules based on requirement description
+
+   - FirstName, LastName, City (Letters only, Numeric and Special characters are not allowed)
+   - State (2 Letters only)
+   - Phone# (10 digits numeric only)
+   - SSN (9 digits numeric only)
+   - All 11 fields are mandatory.
+
+
+2. OPEN NEW ACCOUNT (US-08 to US-10):
+   ------>Update module name, User story count and below validation rules based on requirement description
+
+   - Account Type (Select from dynamically displayed dropdown, CHECKINGS or SAVINGs)
+   - $100.00 (Not for input, just for field validation)
+
+
+3. FUND TRANSFER (US-11 to US-13):
+   ------>Update module name, User story count and below validation rules based on requirement description
+
+   - Amount (Numbers only in format positive values > 0)
+   - From Account (Select from dynamically displayed dropdown)
+   - To Account (Select from dynamically displayed dropdown)
+   - All 3 fields are mandatory.
+
+
+--------------------------------------------------------------------------------
+### DELIVERABLES NEEDED:
+--------------------------------------------------------------------------------
+
+1. Application Analysis & Requirements.txt:
+   - Provide documented analysis covering registration, open new account and fund transfer modules flows.
+     Create element IDs/selectors for all modules covering the user stories.
+     Generate acceptance criteria, and validation rules by taking reference from file @User Cases.txt.
+
+
+2. testcases.csv:
+   - Generate a complete CSV with at least 60 detailed test cases covering US-01 through US-13.
+
+     Use columns: TC_ID, Module, User_Story_ID, Test_Scenario, Test_Type, Priority, Precondition, Test_Steps, Test_Data, Expected_Result, Actual_result
+     ----> Update these column names based on requirement description
+
+   - Ensure 60-70% are Negative/Validation scenarios with Critical/High priority.
+     Boundary cases should be with Medium priority and Positive/success cases with Low priority.
+
+
+3. Automation Codebase (Selenium + Java using Page Object Model):
+   - Generate a robust Page Object Model code base for all 3 modules covering all user stories.
+   - Consider user stories/flows from file @User Cases.txt
+   - Write at least 20 automated test methods using assertions, focusing heavily on negative/validation checks.
+
+
+4. defects/defect_report.json:
+   - Generate a single JSON file containing at least 8 realistic validation defects observed from test execution across all 3 modules.
+   - Keys required per defect: defect_id, module, user_story, entered_data, observed behavior, expected_result, severity, priority
+
+
+--------------------------------------------------------------------------------
+### OUTPUT INSTRUCTION:
+--------------------------------------------------------------------------------
+
+Please output the content of each file clearly labeled with its exact filename so I can save them directly into my workspace.
