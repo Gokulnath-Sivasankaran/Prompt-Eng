@@ -1,0 +1,244 @@
+================================================================================
+PROMPT 1 - COMPLETE ANALYSIS & REQUIREMENTS
+================================================================================
+
+Read all files under BRD Automation and UserStories.txt.
+Act as a Senior QE Automation Architect.
+Perform complete application analysis and generate content suitable for ApplicationAnalysisAndRequirements.txt.
+
+Include:
+1. Application Overview
+2. Login Flow
+3. Navigation Flow
+4. User Story Mapping (all user stories)
+5. Acceptance Criteria
+6. Business Rules
+7. Validation Rules
+8. UI Elements and Element IDs
+9. Positive Scenarios
+10. Negative Scenarios
+11. Boundary Scenarios
+12. Risks and Dependencies
+
+Organize findings by:
+- Student Registration
+- Update Backlog
+- Add Faculty
+
+Highlight any assumptions separately.
+Do not generate test cases or automation code.
+
+
+================================================================================
+PROMPT 2 - GENERATE 60+ TEST CASES
+================================================================================
+
+Using the application analysis generated above, create 65 detailed test cases.
+
+Requirements:
+- Cover all user stories
+- Cover all modules
+- 60%-70% negative and validation scenarios
+
+Priority:
+- Positive scenarios = Low Priority
+- Boundary scenarios = Medium Priority
+- Validation scenarios = High/Critical Priority
+
+Required Columns:
+- TC_ID
+- Module
+- User_Story_ID
+- Test Scenario
+- Test Type
+- Priority
+- Precondition
+- Test_Steps
+- Test Data
+- Expected Result
+- Actual Result
+- Status
+
+Review coverage before generating and ensure no user story or validation rule is missed.
+Generate output in CSV format.
+
+
+================================================================================
+PROMPT 3 - GENERATE COMPLETE AUTOMATION FRAMEWORK
+================================================================================
+
+Using the BRD, User Stories, Application Analysis and Test Cases generated above,
+Create a complete Playwright automation framework in JavaScript.
+
+Requirements:
+- Page Object Model (POM)
+- Login Helper
+- Reusable Utilities
+- Browser Setup
+- Configuration Files
+- Assertions
+- Reporting Support
+- Test Data Handling
+
+Modules:
+- Student Registration
+- Update Backlog
+- Add Faculty
+
+Generate:
+1. Folder Structure
+2. package.json
+3. playwright.config.js
+4. Login Helper
+5. Base Page
+6. Utility Classes
+7. Student Registration Page Object
+8. Update Backlog Page Object
+9. Add Faculty Page Object
+10. Test Files
+
+Implement at least 20 automated test methods with meaningful assertions.
+Generate code file-by-file
+
+
+================================================================================
+PROMPT 4 - EXECUTION SETUP & EVIDENCE CAPTURE
+================================================================================
+
+Review the automation framework and prepare it for execution.
+Important: All test execution must be performed using the Integrated Terminal in VS Code as per assessment requirement.
+
+Provide:
+
+1. Exact VS Code Integrated Terminal commands to:
+   - Install dependencies
+   - Install Playwright browsers
+   - Execute all tests
+   - Execute Student Registration tests only
+   - Execute Update Backlog tests only
+   - Execute Add Faculty tests only
+   - Execute tests with reports enabled
+   - Open and view execution reports
+
+2. Verify that the framework is fully executable from the VS Code Integrated Terminal.
+
+3. Configure Playwright to automatically capture:
+   - Screenshots on success
+   - Screenshots on failure
+   - Videos
+   - Traces
+   - HTML Reports
+   - Execution Logs
+
+4. Generate any required updates to:
+   - playwright.config.js
+   - package.json
+   - utility files
+   - reporting configuration
+
+5. Verify and confirm:
+   - All user stories are covered
+   - All validation rules are covered
+   - At least 20 automated tests exist
+   - Assertions are meaningful
+   - Login helper is reused across all modules
+   - Page Object Model design is followed
+
+6. Provide the expected evidence artifacts that will be generated after execution, including:
+   - Screenshot locations
+   - Video locations
+   - Trace locations
+   - HTML report location
+   - Execution log location
+
+Generate any missing code or configuration required to satisfy these requirements.
+
+
+================================================================================
+PROMPT 5 - EXECUTION FAILURE ANALYSIS & FIXES
+================================================================================
+
+Analyze the following execution result.
+
+Execution Log: <PASTE LOG>
+
+Failed Tests: <PASTE FAILURES>
+
+Provide:
+1. Root Cause
+2. Whether the issue is:
+   - Automation issue
+   - Application defect
+3. Impacted File
+4. Exact Fix
+5. Updated Code Only
+
+Do not regenerate the entire framework.
+
+
+================================================================================
+PROMPT 6 - EVALUATE FEEDBACK RESOLUTION
+================================================================================
+
+Analyze the Evaluate feedback below
+
+Feedback: <PASTE EVALUATE FEEDBACK>
+
+Identify:
+- Missing user story coverage
+- Missing requirements validations
+- Missing assertions
+- Missing automation scenarios
+- Missing test cases
+
+Generate only the fixes required to maximize the score.
+
+
+================================================================================
+PROMPT 7 - DEFECT REPORT GENERATION
+================================================================================
+
+Using the actual execution failures observed during testing
+
+Generate defects/defect_report.json.
+
+For each defect provide:
+- Defect ID
+- Module
+- User_Story_ID
+- TestCase_ID
+- Input Data
+- Steps To Reproduce
+- Expected Result
+- Actual Result
+- Severity
+- Priority
+
+Only include actual observed defects from execution.
+Do not include assumed defects.
+
+
+================================================================================
+PROMPT 8 - FINAL SUBMISSION AUDIT
+================================================================================
+
+Perform a final audit of the entire solution.
+
+Verify:
+- ApplicationAnalysisAndRequirements.txt exists
+- All user stories are covered
+- 60+ test cases generated
+- Student Registration automation completed
+- Update Backlog automation completed
+- Add Faculty automation completed
+- Login Helper implemented
+- At least 20 automated tests exist
+- Assertions implemented
+- Screenshots configured
+- HTML Report configured
+- Execution evidence generated
+- Defect report.json exists
+- Validation coverage complete
+- Negative coverage between 60%-70%
+
+Identify any remaining gaps before final submission and provide fixes
