@@ -1,0 +1,28 @@
+Act as a senior QA automation engineer working in the current VS Code workspace on the Library Management Portal. Stack: Playwright + TypeScript, Page Object Model, reusable helpers, Playwright assertions, integrated VS Code terminal for install/run/debug/validation.
+
+Goal: not just code. Inspect, analyze, document, derive requirements, identify validation rules, generate test cases, implement automation, execute tests, investigate failures, fix automation issues, rerun, identify genuine app defects, final regression verification.
+
+Rules: analyse the existing workspace first. Do not change, delete, rename or restructure it. Build on top of it only. Keep it clean, no redundant files/folders. Inspect the app only with the tools/browser workflow available in this workspace. Treat the existing user stories in the workspace as the source of truth.
+
+AUT:
+- Library Card (US-01 to US-12): https://webapps.tekstac.com/SeleniumApp2/Library/LibraryCard.html
+- Services (US-13 to US-22): https://webapps.tekstac.com/SeleniumApp2/Library/Services.html
+- Membership (US-23 to US-28): https://webapps.tekstac.com/SeleniumApp2/Library/MemberShip.html
+
+STEP 1 - INSPECT all 3 modules. Document HTML element IDs, labels/field types, buttons/navigation, default values, success/error messages, form behaviour, mandatory fields, empty-form and invalid-value behaviour. Actually submit empty and invalid data. Do not assume behaviour.
+
+STEP 2 - Create Application Analysis & Requirements.txt: application overview, navigation flow, module analysis, US-01 to US-28, acceptance criteria for every story (existing stories + actual behaviour), element IDs, field types, observed behaviour, validation rules, success/error messages, discrepancies. Use it as context for later test-case and code generation. Also document any extra rules found during inspection.
+Validation rules:
+- Library Card: First/Last Name non-empty (no format/trim check). Age non-empty, NOT numeric-validated. Email non-empty; type=email = browser check only. Phone non-empty, NOT digit/length validated. Role: Student/Employee selected AND matching sub-field (School/Company) non-empty. Action must not be default "Select". Amount read-only (disabled), auto-populated (apply=100, renewal=50), not validated. Mandatory: 6 of 8 inputs (all except Amount and hidden non-selected work sub-field).
+- Services (Ask a Librarian): Medium radio (Email/Call/Chat) must be picked first. Call: phone details only, NO submit, NO validation. Email: From non-empty (no email-format check), Query non-empty. Chat: Name non-empty, Your Phone non-empty (no digit check), Query non-empty.
+- Membership: human verification, drag book image into drop zone, form unreachable until it succeeds. Tier Gold/Platinum must be selected. Card Number non-empty, NO format/length/checksum validation. Amount read-only (Gold Rs.5000 / Platinum Rs.25000).
+
+STEP 3 - testcases.csv: 45 detailed cases covering every US-01 to US-28. Columns exactly: TC_ID, Module, User_Story_ID, Test_Scenario, Test_type, Priority, Precondition, Test_Steps, Test_Data, Expected_Result, Actual_Result, Status. 60-70% negative/validation (Critical/High), positive/success Low, boundary/format-gap (non-numeric Age, negative Age, alphabetic Phone, email with no TLD, symbol-only card number, verification-gate bypass attempt) Medium.
+
+STEP 4 - Automation: Playwright TypeScript POM with browser setup, reusable helpers/utilities, meaningful assertions, reliable locators using actual discovered IDs (do not guess selectors), proper waits/synchronization. At least 30 test methods across all 3 modules (about 12 Library Card, 10 Services, 8 Membership).
+
+STEP 5 - Execute and refine in the VS Code terminal. For every failure: inspect the actual error; classify it (locator, navigation, timing, test-data, assertion, application behaviour, genuine defect); fix automation issues; correct assertions only when actual behaviour proves the original assertion wrong; rerun failed tests, then the full suite where practical; improve stability and coverage. Provide execution evidence via Playwright reports/artifacts.
+
+STEP 6 - defect_report.json: exactly one consolidated file with at least 8 validation defects across all 3 modules, from actual test execution only (no AI prediction or assumptions). Each: Defect ID, Module, User Story ID, Test Case ID, Test Data, Steps, Expected Result, Actual Result, Severity, Priority, Status, execution details.
+
+FINAL: the workspace must contain a complete, executable, maintainable solution: Application Analysis & Requirements.txt, testcases.csv, Playwright TypeScript POM codebase (30+ tests, meaningful assertions), defect_report.json.
