@@ -1,0 +1,267 @@
+================================================================================
+UI AUTOMATION ASSESSMENT - LIBRARY MANAGEMENT PORTAL --- ANSWER (PROMPT)
+================================================================================
+
+• Keep the workspace clean, no redundant files or folders.
+
+
+--------------------------------------------------------------------------------
+ROLE & CONTEXT
+--------------------------------------------------------------------------------
+
+Hi. Act as a senior QA automation engineer working directly inside the current VS Code workspace.
+
+You are completing an AI-assisted UI automation assessment for the College Social Network web application.
+
+Your implementation technology is strictly with Playwright, TypeScript, Page Object Model, Reusable helpers, Playwright assertions and Integrated VS Code terminal.
+
+Your objective is not merely to generate code. Your objective is to inspect, analyze, document, derive requirements, identify the validation rules, generate comprehensive test cases, implement automation, execute tests, investigate failures, fix automation issues, rerun, identify genuine application defects and perform final regression verification.
+
+The final workspace must contain a complete, executable, maintainable solution satisfying every assessment requirement.
+
+You are assisting me with Library Management Portal. Follow the assignment exactly and work with the existing workspace.
+
+Analyse the existing project workspace first. Do not change, delete, rename or restructure the provided workspace. Implement the solution on top of the existing structure only. Avoid redundant files/folders.
+
+Use Playwright with TypeScript and Page Object Model. Use the integrated VS Code terminal for installation, execution, debugging and validation.
+
+Launch and inspect the application only by using the tools and browser workflow available in this workspace.
+
+
+--------------------------------------------------------------------------------
+AUT (APPLICATION UNDER TEST)
+--------------------------------------------------------------------------------
+
+Module 1-Library Card-https://webapps.tekstac.com/SeleniumApp2/Library/LibraryCard.html
+
+Module 2-Services-https://webapps.tekstac.com/SeleniumApp2/Library/Services.html
+
+Module 3-Membership-https://webapps.tekstac.com/SeleniumApp2/Library/MemberShip.html
+
+
+--------------------------------------------------------------------------------
+SCOPE
+--------------------------------------------------------------------------------
+
+Module 1- Library Card: US-01 to US-12
+
+Module 2- Services: US-13 to US-22
+
+Module 3- Membership: US-23 to US-28
+
+
+Read the user stories already available in the workspace and treat them as the source of truth.
+
+
+================================================================================
+STEP 1 - INSPECT ALL THREE MODULES
+================================================================================
+
+Identify and document:
+
+-HTML element IDs
+-Labels and field types
+-Buttons/navigation
+-Default values
+-Success/error messages
+-Form behaviour
+-Mandatory fields
+-Empty form behaviour
+-Invalid-value behaviour
+
+Actually submit empty and invalid data to observe the application. Do not assume behaviour.
+
+
+================================================================================
+DEFINE ACCEPTANCE CRITERIA
+================================================================================
+
+Create acceptance criteria for every user story US-01 through US-28 using the existing user stories plus actual application behaviour.
+
+Create :
+
+Application Analysis & Requirements.txt
+
+It should contain:
+
+-Application overview
+-Navigation flow
+-Module analysis
+-US-01 through US-16
+-Acceptance criteria
+-Element IDs
+-Field types
+-Actual observed behaviour
+-Validation rules
+-Success/error messages
+-Any discrepancies discovered
+
+Use this file as context for subsequent AI test-case and code generation.
+
+
+================================================================================
+VALIDATION RULES
+================================================================================
+
+Document all field-level validation rules for all 3 modules in Application Analysis & Requirements.txt
+
+Required rules:
+
+Library Card Module ("Get a Library Card" form)
+
+-First Name & Last Name: Non-empty text — no format or trim check
+-Age: Non-empty text — NOT numeric-format-validated
+-Email: Non-empty; type=email gives a browser-level check only
+-Phone: Non-empty text — NOT digit-only or length-validated
+-Role: One of Student / Employee must be selected AND the matching sub-field (School / Company) must be non-empty
+-Action: Must select an option other than the default "Select"
+-Amount: Read-only (disabled); auto-populated (apply=100, renewal=50) — not validated
+
+Mandatory fields:6 of 8 inputs mandatory (all except Amount and the hidden non-selected work sub-field)
+
+Services Module ("Ask a Librarian" form)
+
+-Medium radio button: Must pick Email / Call / Chat first
+-Call path: Shows phone details only — NO submit button, NO validation
+-Email path — From: Non-empty — NO email-format check
+-Email path — Query: Non-empty Chat path
+-Name: Non-empty
+-Chat path — Your Phone: Non-empty — NO digit-only check
+-Chat path — Query: Non-empty
+
+Membership Module
+
+-Human verification:Drag the book image into the drop zone; the membership form is unreachable until this succeeds
+-Tier radio: Gold or Platinum must be selected
+-Card Number: Non-empty — NO format / length / checksum validation
+-Amount: Read-only (Gold "Rs.5000" / Platinum "Rs.25000")
+
+Also document any additional rules discovered during actual inspection.
+
+
+================================================================================
+GENERATE COMPREHENSIVE TEST CASES
+================================================================================
+
+Generate 40 to 45 detailed test cases in CSV format (testcases.csv) covering all 28 user stories across the three modules (Library Card, Services, Membership).
+
+Create a CSV containing exactly:
+
+TC_ID, Module, User_Story_ID, Test_Scenario, Test_type, Priority, Precondition, Test_Steps, Test_Data, Expected_Result, Actual_Result, Status.
+
+Requirements:
+
+-Every US-01 through US-28 must be covered.
+- 60–70% of cases must be negative/validation tests (Critical or High priority).
+-Positive/success scenarios should be Low priority.
+-Boundary and format-gap tests (non-numeric Age, negative Age, alphabetic Phone, email with no TLD, symbol-only card number, verification-gate bypass attempt) should be Medium.
+
+
+================================================================================
+AUTOMATION IMPLEMENTATION
+================================================================================
+
+Create a complete Playwright Typescript automation solution using Page Object Model.
+
+Required:
+
+-Browser setup
+-Reusable helpers
+-Test methods
+-Reusable utilities
+-Meaningful assertions
+-Reliable Playwright locators
+-Proper waits/synchronization
+
+Implement at least 30 automated test methods covering all 3 modules (a reasonable split is roughly 12 Library Card, 10 Services, 8 Membership).
+
+Use actual element IDs and validation rules discovered during inspection. Do not guess selectors.
+
+
+================================================================================
+EXECUTE AND REFINE
+================================================================================
+
+Run the Playwright tests using the integrated VS Code terminal.
+
+For every failure:
+
+1. Inspect the actual error.
+2. Determine whether it is a locator, navigation, timing, test-data, assertion, application behaviour, or genuine application-defect issue.
+3. Fix automation issues.
+4. Correct assertions only when actual application behaviour proves the original assertion was wrong.
+5. Re-run the failed tests.
+6. Re-run the complete suite where practical.
+7. Improve stability and coverage.
+
+Provide execution evidence through Playwright reports/artifacts where supported.
+
+
+================================================================================
+DOCUMENT DEFECTS
+================================================================================
+
+Execute the validation tests across all 3 modules and document defects based only on actual observed execution.
+
+Create exactly one consolidated file:
+
+defect_report.json
+
+It must contain at least 8 documented validation defects.
+
+Each defect must include at minimum:
+
+-Defect ID
+-Module
+-User Story ID
+-Test Case ID
+-Test Data
+-Steps
+-Expected Result
+-Actual Result
+-Severity
+-Priority
+-Status
+
+Defects should come from actual test execution, not AI prediction or assumptions. Attempt to identify defects across all 3 modules.
+
+
+================================================================================
+FINAL DELIVERABLES
+================================================================================
+
+The workspace must contain:
+
+1. Application Analysis & Requirements.txt
+
+   -Analysis of all 3 modules
+   -Element IDs
+   -Field types
+   -US-01 to US-28  [line partially cut off in the photo]
+   -Acceptance criteria
+   -Validation rules
+   -Actual observed behaviour
+
+2. Test case CSV
+
+   -45+ detailed cases
+   -All 28 user stories
+   -Required columns
+   -60-70% negative/validation coverage
+   -correct priorities
+
+3. Playwright Typescript automation codebase
+
+   -POM
+   -At least 30 automated tests
+   -Meaningful assertions
+
+4. defect_report.json
+
+   -One consolidated JSON file
+   -Detect and document exactly 5 validation defects
+   -Expected result
+   -Actual result
+   -Severity
+   -Priority
+   -Execution details
